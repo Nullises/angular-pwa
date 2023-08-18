@@ -1,38 +1,154 @@
 <div class="container-fluid py-3">
-  <div class="flex justify-center md:text-5xl sm:text-3xl mb-20 text-center">
-    <h1>Angular Progressive Web Application (PWA)</h1>
-  </div>
-  <div class="flex justify-center">
-    <div class="text-2xl">
-      Status:
-    </div>
-    <div class="mt-1">
-      <span class="badge bg-success" *ngIf="isOnline">Online</span>
-      <span class="badge bg-danger" *ngIf="!isOnline">Offline</span>
-    </div>
-  </div>
-  <div class="flex justify-center">
-    <form [formGroup]="changeCardHolderForm" (submit)="updateCardHolder()" novalidate>
-      <div class="form-control md:w-full max-w-xs">
-        <label class="label">
-          <span class="label-text">Full Name</span>
-        </label>
-        <input formControlName="username" type="text" id="username" placeholder="Type here"
-          class="input input-bordered w-full max-w-xs" />
-        <button class="btn btn-active btn-accent mt-10" type="submit">Accent</button>
-        <div class="alert alert-error mt-10" *ngIf="
-          usernameControl?.invalid &&
-          (usernameControl?.dirty || usernameControl?.touched)
-        ">
-          <span>userName is Required</span>
+  <div class="row my-10 ms-5 me-5">
+    <div class="card container py-2">
+      <div class="row my-2">
+        <div class="col text-end">
+          Status:
+        </div>
+        <div class="col">
+          <span class="badge bg-success" *ngIf="isOnline">Online</span>
+          <span class="badge bg-danger" *ngIf="!isOnline">Offline</span>
         </div>
       </div>
-    </form>
+      <div class="d-flex justify-content-center my-5 mb-3">
+        <img src="../assets/icons/icon-512x512.png" alt="Mocafi-Logo" width="48" height="48">
+      </div>
+      <form class="needs-validation" [formGroup]="changeCardHolderForm" (submit)="updateCardHolder()" novalidate>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="uniqueGuid" class="form-label">Unique GUID</label>
+              <input formControlName="uniqueGuid" type="text" class="form-control" id="uniqueGuid" required>
+              <div class="invalid-feedback">
+                <span>uniqueGuid is Required</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="householdId" class="form-label">Household ID</label>
+              <input formControlName="householdId" type="text" class="form-control" id="householdId" required>
+              <div class="invalid-feedback">
+                <span>householdId is Required</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="clientId" class="form-label">Client ID</label>
+              <input type="text"  formControlName="clientId" class="form-control" id="clientId" required>
+              <div class="invalid-feedback">
+                <span>clientId is Required</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="firstname" class="form-label">First Name</label>
+              <input formControlName="firstname"  type="text" class="form-control" id="firstname" required>
+              <div class="invalid-feedback">
+                <span>firstname is Required</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="lastname" class="form-label">Last Name</label>
+              <input type="text" formControlName="lastname" class="form-control" id="lastname" required>
+              <div class="invalid-feedback">
+                <span>lastname is Required</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="advance-search-group-container">
+              <div class="mb-3">
+                <label class="mb-2" for="transactionDateTime">Date of Birth</label>
+                <input type="date"  formControlName="dob" class="form-control" placeholder="Enter Date of Birth" id="dob" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" formControlName="email"  class="form-control" id="email" optional>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" formControlName="phone"  class="form-control" id="phone" optional>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" formControlName="address"  class="form-control" id="address" optional>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="apt" class="form-label">Apt</label>
+              <input type="text" formControlName="apt" class="form-control" id="apt" optional>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="city" class="form-label">City</label>
+              <input type="text" formControlName="city" class="form-control" id="city" optional>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="state" class="form-label">State</label>
+              <input type="text" formControlName="state" class="form-control" id="state" optional>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="zip" class="form-label">Zip</label>
+              <input type="text" formControlName="zip" class="form-control" id="zip" optional>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="allocatedAmount" class="form-label">Allocated Amount</label>
+              <select class="form-select" formControlName="allocatedAmount" id="allocatedAmount" required>
+                <option value="100">$100</option>
+                <option value="500">$500</option>
+                <option value="1000">$1000</option>
+              </select>
+              <div class="invalid-feedback">
+                <span>allocatedAmount is Required</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="cc" class="form-label">Last 4 numbers of CC</label>
+              <input type="text" formControlName="cc" class="form-control" id="cc" optional>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center my-1">
+          <button class="btn main" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
   </div>
-
 </div>
-
 
 <div class="w-100 position-absolute top-0" *ngIf="modalVersion">
   <div class="alert alert-secondary m-2">
@@ -43,6 +159,7 @@
 </div>
 
 <div class="w-100 position-absolute bottom-0" *ngIf="modalPwaPlatform === 'ANDROID' || modalPwaPlatform === 'IOS'">
+
   <div class="alert alert-secondary m-2">
     <button type="button" class="btn-close position-absolute top-0 end-0 m-1" aria-label="Close"
       (click)="closePwa()"></button>

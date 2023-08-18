@@ -1,0 +1,20 @@
+
+
+
+.ios-menu {
+  width: 14px;
+}
+
+.main, main:active {
+    background-color:#f19118;
+    color: white
+}
+
+.main:hover {
+  background-color: #f19118;
+  color: gray
+}
+
+.required-input {
+  color: red;
+}
